@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf8">
+
+    <title>
+        CG &CenterDot;
+        3D &CenterDot;
+        Geometria &CenterDot;
+        X3D &CenterDot;
+        Piramide
+    </title>
+
+    <script type='application/javascript'
+        src='lib/x3dom/x3dom-full.js'>
+    </script>
+    <link rel='stylesheet' type='text/css'
+        href='lib/x3dom/x3dom.css' />
+    <style>
+        x3d,
+        X3D {
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+  <h1>
+    CG &CenterDot;
+    3D &CenterDot;
+    Geometria &CenterDot;
+    X3D &CenterDot;
+    Piramide(textura)
+</h1>
+
+    <div>
+        <x3d>
+            <scene>
+                <shape>
+                    <appearance>
+                        <commonsurfaceshader
+                          specularFactor="1 1 1"
+                          shininessFactor="5">
+                        <imagetexture containerField="diffuseTexture" 
+                          url="media/tri2_d.png"></imagetexture>
+                        <imagetexture containerField="specularTexture"
+                          url="media/tri2_s.png"></imagetexture>
+                        <imagetexture containerField="normalTexture"
+                          url="media/tri2_n.png"></imagetexture>
+                      </commonsurfaceshader>
+                        </appearance>
+                        <indexedfaceset 
+                          coordIndex="
+                            1 3 2 -1
+                            0 3 1 -1
+                            0 2 3 -1
+                            0 1 2 -1
+                          " 
+                            
+                          texCoordIndex="
+                            0 1 2 -1
+                            0 1 2 -1
+                            0 1 2 -1
+                            0 1 2 -1
+                          ">
+                          <coordinate point="
+                            0.000 0.000 0.000
+                            1.000 0.000 0.000
+                            0.500 0.750 0.000
+                            0.500 0.375 0.750
+                          ">
+                          </coordinate>
+                          <texturecoordinate point="
+                            0.0 0.0
+                            1.0 0.0
+                            0.5 1.0        
+                            ">
+                        </texturecoordinate>
+                    </indexedfaceset>
+                </shape>
+            </scene>
+        </x3d>
+    </div>
+
+</body>
+
+</html>

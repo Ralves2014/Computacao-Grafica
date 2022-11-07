@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script>
+function main() {
+    let gc = document
+    .getElementById("acanvas")
+    .getContext("2d");
+
+    //as primeiras posiçoes sao relativamente à primeira cor...
+    let g = gc.createLinearGradient(10,0,64,0); 
+    g.addColorStop(0.0, "steelblue");
+    g.addColorStop(1.0, "khaki");
+    gc.fillStyle = g;
+    gc.fillRect(0,0,100,100);
+}
+    </script>
+</head>
+<body>
+    <canvas id="acanvas">
+        <script>main();</script>
+    </canvas>
+</body>
+</html>

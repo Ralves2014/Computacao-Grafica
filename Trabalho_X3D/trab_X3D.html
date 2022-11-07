@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf8">
+
+    <title>
+        CG &CenterDot;
+        3D &CenterDot;
+        Aspeto &CenterDot;
+        X3D &CenterDot;
+        Mapas UV
+    </title>
+
+    <script type='application/javascript'
+        src='lib/x3dom/x3dom-full.js'>
+    </script>
+    <link rel='stylesheet' type='text/css'
+        href='lib/x3dom/x3dom.css' />
+    <style>
+        x3d,
+        X3D {
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        CG &CenterDot;
+        3D &CenterDot;
+        Aspeto &CenterDot;
+        X3D &CenterDot;
+        Mapas UV
+    </h1>
+
+    <div>
+        <X3D>
+            <Scene>
+                <Transform scale="2 2 2">
+                    <InLine url="mapauv.x3d" nameSpaceName="MapaUV" mapDEFToID="true"></InLine>
+                </Transform>
+            </Scene>
+        </X3D>
+    </div>
+
+    <p>Pode descarregar este modelo <a href="mapauv.x3d">aqui</a>.</p>
+</body>
+
+</html>

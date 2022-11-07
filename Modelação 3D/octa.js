@@ -1,0 +1,80 @@
+/*
+ _____                   _      _         _  _   
+| ____|_  _____ _ __ ___(_) ___(_) ___   | || |  
+|  _| \ \/ / _ \ '__/ __| |/ __| |/ _ \  | || |_ 
+| |___ >  <  __/ | | (__| | (__| | (_) | |__   _|
+|_____/_/\_\___|_|  \___|_|\___|_|\___/     |_|  
+                                                 
+
+*/
+function octaedro() {
+    const geometry = new THREE.OctahedronGeometry(1.0 , 0);
+
+    let material = new THREE.MeshNormalMaterial( { color: "cyan" } );   
+
+    oct = new THREE.Mesh( geometry, material );
+  
+    let ambient_light = new THREE.AmbientLight(0xFFD6AA); //Sempre necessário
+  
+    return [ambient_light, oct];
+  };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Definições do Container
+function init(objects) {
+    //
+    let renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+    });
+    let size = Math.min(parent.innerWidth - 32, parent.innerHeight - 32, 1024);
+    renderer.setSize(size, size);
+    let div_container = document.getElementById("container");
+    div_container.appendChild(renderer.domElement);
+  
+    //Cria a cena
+    let scene = new THREE.Scene();
+  
+    //settings da camara 
+    let camera = new THREE.PerspectiveCamera(
+      45, // abertura
+      512 / 512, // proporção largura/altura
+      1, // corte perto
+      10000 // corte longe
+    );
+    camera.position.set(0, 0, 8);
+    camera.lookAt(scene.position);
+    
+    //Define os controlos da imagem
+    let controls = new THREE.OrbitControls(camera, renderer.domElement);
+    div_container.addEventListener("keypress", (e) => {
+      if (e.key == "R" || e.key == "r") controls.reset()
+    });
+    
+  
+    //Adiciona os objetos à cena
+    for (let object of objects) {
+      scene.add(object);
+    }
+  
+    return {
+      camera: camera,
+      scene: scene,
+      renderer: renderer,
+      controls: controls
+    }
+  }   
+  
+  
+  function animate(step) {
+  requestAnimationFrame(() => animate(step));
+  step.controls.update();
+  step.renderer.render(step.scene, step.camera);
+  }
+  
+  function main() {
+    let model = octaedro();              //guarda todos os objetos num modelo
+    let step = init(model);                 //Cria a cena e adiciona o modelo (objetos)
+    animate(step);
+  }

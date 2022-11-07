@@ -1,0 +1,29 @@
+Textura natural X3D(colorida)
+
+<appearance>
+	<material diffuseColor="green">
+        </material>
+</appearance>
+
+
+
+
+Textura personalizada X3D
+
+<appearance>
+    <commonsurfaceshader
+       specularFactor="1 1 1"
+       shininessFactor="5">
+    <imagetexture containerField="diffuseTexture" 
+      url="mapadif.png"></imagetexture>
+    <imagetexture containerField="specularTexture"
+      url="listas.png"></imagetexture>
+    <imagetexture containerField="normalTexture"
+      url="tijolo.jpg"></imagetexture>
+    </commonsurfaceshader>
+</appearance>
+
+
+(Nao esquecer de definir as coordenadas para as texturas e as faces)
+
+
